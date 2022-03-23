@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ecosia-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: local.ecosia.org  
+    http:
+      paths:
+      - path: /tree
+        pathType: Prefix
+        backend:
+          service:
+            name: ecosia-svc
+            port:
+              number: 80
+---

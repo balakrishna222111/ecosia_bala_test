@@ -1,0 +1,11 @@
+{
+  "name": "Ecosia_bala_test",
+  "version": "1.0.0",
+  "description": "Bala's favourite tree",
+  "main": "index.js",
+  "author": "Balakrishna",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecosia-deploy
+  labels:
+    app: ecosia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecosia
+  template:
+    metadata:
+      labels:
+        app: ecosia
+    spec:
+      containers:
+      - name: ecosia
+        image: ecosia:latest
+        imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecosia-svc
+spec:
+  selector:
+    app: ecosia
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+---
